@@ -1,15 +1,15 @@
 import ProjectCarousel from "@/components/home/Carousel";
 import Navbar from "@/components/ui/headerLayout";
-import Image from "next/image";
 
-import { NavbarData } from "@/types/navbar";
-
-
+import HeroCarousel from "@/components/home/HeroCarousel";
+import StatsBar from "@/components/home/StatsBar";
 
 export default function Home() {
   return (
     <>
-      <Navbar  />
+      <Navbar />
+      <HeroCarousel />
+      <StatsBar />
     </>
   );
 }

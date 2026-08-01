@@ -1,12 +1,12 @@
 import { NavbarData } from "@/types/navbar";
 
 export const defaultNavbarData: NavbarData = {
-  // logoImage: {
-  //   src: "/jiba-logo.png",
-  //   alt: "JIBA CONSTRUCTION LIMITED Logo",
-  //   width: 180,
-  //   height: 50,
-  // },
+  logoImage: {
+    src: "/jiba-logo.png",
+    alt: "JIBA CONSTRUCTION LIMITED Logo",
+    width: 180,
+    height: 50,
+  },
   logoText: "JIBA CONSTRUCTION",
   rcNumber: "RC: 1805786",
   navLinks: [
