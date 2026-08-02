@@ -56,8 +56,8 @@ export default function AboutClientsSection({ data }: AboutClientsProps) {
                 className="space-y-4"
               >
                 {/* Category Header Banner (Styled like reference) */}
-                <div className="w-full bg-brand-dark text-white py-3 px-6 rounded-t-md shadow-sm border-b-2 border-brand-primary">
-                  <h3 className="text-lg sm:text-xl font-serif font-semibold text-center tracking-wide text-brand-primary">
+                <div className="w-full bg-brand-light text-brand-dark  py-3 px-6 rounded-t-md shadow-sm border-b-2 border-brand-primary">
+                  <h3 className="text-lg sm:text-xl font-serif font-semibold text-center tracking-wide text-brand-dark">
                     {cat.title}
                   </h3>
                 </div>

@@ -1,8 +1,8 @@
 import { FooterSectionData } from "@/types/footer";
 
 export const defaultFooterData: FooterSectionData = {
-  logoType: "text", // Toggle between 'text' or 'image'
-  logoImageUrl: "/jiba-logo.png", // Path to brand logo image
+  logoType: "text", 
+  logoImageUrl: "/jiba-logo.png", 
 
   companyName: "JIBA CONSTRUCTION",
   tagline: "Engineering Excellence & Structural Integrity",
@@ -15,8 +15,8 @@ export const defaultFooterData: FooterSectionData = {
     { label: "About Our Firm", href: "/about" },
     { label: "Featured Projects", href: "/projects" },
     { label: "Engineering Services", href: "/services" },
-    { label: "Safety & Compliance", href: "/safety" },
     { label: "Request Quotation", href: "/contact" },
+    { label: "Privacy & Policy", href: "/privacy-policy" },
   ],
   servicesLinks: [
     { label: "Civil Infrastructure", href: "/services#civil" },

@@ -19,9 +19,8 @@ export const defaultNavbarData: NavbarData = {
     {
       id: "nav-2",
       _key: "nav-1",
-
       title: "Services",
-      href: "/serivices",
+      href: "/services",
     },
     {
       id: "nav-3",
@@ -45,6 +44,6 @@ export const defaultNavbarData: NavbarData = {
   ],
   ctaButton: {
     label: "CONTACT US",
-    href: "#contact",
+    href: "/contact",
   },
 };

@@ -5,6 +5,7 @@ export interface BreadcrumbItem {
 
 export interface PageHeroSectionData {
   title: string;
+  subtitle?: string;
   description?: string; // Optional subtitle / description
   breadcrumbs?: BreadcrumbItem[];
   showScrollIndicator?: boolean;

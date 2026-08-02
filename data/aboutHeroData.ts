@@ -1,6 +1,7 @@
 import { AboutHeroSectionData } from "@/types/aboutHero";
+import { PageHeroSectionData } from "@/types/pageHero";
 
-export const defaultAboutHeroData: AboutHeroSectionData = {
+export const defaultAboutHeroData: PageHeroSectionData = {
   title: "ABOUT US",
   breadcrumbs: [
     { label: "Home", href: "/" },
