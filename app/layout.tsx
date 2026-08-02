@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Cinzel } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/ui/headerLayout";
+import Footer from "@/components/ui/footerLayout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,7 +17,8 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: "JIBA CONSTRUCTION LIMITED | Real Estate, Developers & Civil Engineering",
+  title:
+    "JIBA CONSTRUCTION LIMITED | Real Estate, Developers & Civil Engineering",
   description:
     "Building today, securing tomorrow. Premium real estate development, realtor services, and civil engineering based in Abuja, Nigeria.",
   keywords: [
@@ -38,7 +41,11 @@ export default function RootLayout({
       className={`${inter.variable} ${cinzel.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Navbar />
+
         {children}
+
+        <Footer />
       </body>
     </html>
   );

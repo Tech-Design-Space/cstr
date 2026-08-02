@@ -327,7 +327,7 @@ export default function HeroCarousel({
                   </span>
                 )} */}
 
-                <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                <h1 className="font-sans text-3xl sm:text-5xl  font-extrabold tracking-tight text-white leading-tight">
                   {currentSlide.title}
                 </h1>
 

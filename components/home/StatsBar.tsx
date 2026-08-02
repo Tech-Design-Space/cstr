@@ -19,7 +19,6 @@ interface StatsBarProps {
 
 export default function StatsBar({ data = defaultStatsData }: StatsBarProps) {
   return (
-    // LAYER 2: Presentation (Semantic HTML & Tailwind V4)
     // Shifted from dark background to the clean white/main background of the site.
     <section className="relative z-20 bg-background text-foreground py-16 lg:py-20 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
