@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavbarData } from "@/types/navbar";
@@ -15,15 +16,36 @@ interface NavbarProps {
 export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const toggleDropdown = (title: string) => {
     setActiveDropdown((prev) => (prev === title ? null : title));
+  };
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  const isLinkActive = (href?: string, dropdownItems?: { href: string }[]) => {
+    if (href && pathname === href) return true;
+    if (dropdownItems) {
+      return dropdownItems.some((item) => pathname === item.href);
+    }
+    return false;
   };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-brand-dark text-white border-b border-white/10 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+          
           {/* Logo Brand Section */}
           <div className="flex-shrink-0 flex items-center gap-2">
             <Link href="/" className="flex items-center gap-3 group">
@@ -60,8 +82,9 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
           >
             {data.navLinks.map((link) => {
               const hasDropdown = Boolean(
-                link.dropdownItems && link.dropdownItems.length > 0,
+                link.dropdownItems && link.dropdownItems.length > 0
               );
+              const active = isLinkActive(link.href, link.dropdownItems);
 
               return (
                 <div
@@ -75,7 +98,11 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                   {hasDropdown ? (
                     <button
                       type="button"
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold tracking-wide text-slate-100 hover:text-brand-primary transition-colors py-2 cursor-pointer"
+                      className={`inline-flex items-center gap-1.5 text-sm font-semibold tracking-wide transition-colors py-2 cursor-pointer ${
+                        active
+                          ? "text-brand-primary font-bold"
+                          : "text-slate-100 hover:text-brand-primary"
+                      }`}
                       onClick={() => toggleDropdown(link.title)}
                       aria-expanded={activeDropdown === link.title}
                     >
@@ -86,13 +113,23 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                         }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-brand-primary" />
+                        <ChevronDown
+                          className={`w-4 h-4 ${
+                            active
+                              ? "text-brand-primary"
+                              : "text-slate-400 group-hover:text-brand-primary"
+                          }`}
+                        />
                       </motion.div>
                     </button>
                   ) : (
                     <Link
                       href={link.href || "#"}
-                      className="text-sm font-semibold tracking-wide text-slate-100 hover:text-brand-primary transition-colors py-2 block"
+                      className={`text-sm font-semibold tracking-wide transition-colors py-2 block ${
+                        active
+                          ? "text-brand-primary font-bold"
+                          : "text-slate-100 hover:text-brand-primary"
+                      }`}
                     >
                       {link.title}
                     </Link>
@@ -109,15 +146,22 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                         className="absolute left-0 mt-1 w-56 rounded-md shadow-xl bg-brand-dark border border-white/10 z-50 overflow-hidden"
                       >
                         <div className="py-2">
-                          {link.dropdownItems?.map((subItem, idx) => (
-                            <Link
-                              key={`${link.id}-sub-${idx}`}
-                              href={subItem.href}
-                              className="block px-4 py-2.5 text-sm text-slate-200 hover:bg-brand-dark-soft hover:text-brand-primary transition-colors"
-                            >
-                              {subItem.title}
-                            </Link>
-                          ))}
+                          {link.dropdownItems?.map((subItem, idx) => {
+                            const isSubActive = pathname === subItem.href;
+                            return (
+                              <Link
+                                key={`${link.id}-sub-${idx}`}
+                                href={subItem.href}
+                                className={`block px-4 py-2.5 text-sm transition-colors ${
+                                  isSubActive
+                                    ? "bg-brand-dark-soft text-brand-primary font-bold"
+                                    : "text-slate-200 hover:bg-brand-dark-soft hover:text-brand-primary"
+                                }`}
+                              >
+                                {subItem.title}
+                              </Link>
+                            );
+                          })}
                         </div>
                       </motion.div>
                     )}
@@ -145,7 +189,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
               type="button"
               whileTap={{ scale: 0.9 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-slate-200 hover:text-white hover:bg-brand-dark-soft focus:outline-none"
+              className="p-2 rounded-md text-slate-200 hover:text-white hover:bg-brand-dark-soft focus:outline-none z-50"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
@@ -158,91 +202,117 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu Animation */}
+      {/* Mobile Right Slide-in Panel with Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden bg-brand-dark border-b border-white/10"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-3">
-              {data.navLinks.map((link) => {
-                const hasDropdown = Boolean(
-                  link.dropdownItems && link.dropdownItems.length > 0,
-                );
-                const isOpen = activeDropdown === link.title;
+          <>
+            {/* Dark Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 lg:hidden"
+            />
 
-                return (
-                  <div
-                    key={`mobile-${link.id}`}
-                    className="border-b border-white/5 pb-2"
-                  >
-                    {hasDropdown ? (
-                      <div>
-                        <button
-                          type="button"
-                          onClick={() => toggleDropdown(link.title)}
-                          className="w-full flex justify-between items-center py-2 text-base font-medium text-slate-200 hover:text-brand-primary cursor-pointer"
+            {/* Slide-in Drawer from Right */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
+              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-brand-dark border-l border-white/10 z-50 lg:hidden flex flex-col justify-between shadow-2xl overflow-y-auto"
+            >
+              <div className="p-6 pt-20 space-y-4">
+                {data.navLinks.map((link) => {
+                  const hasDropdown = Boolean(
+                    link.dropdownItems && link.dropdownItems.length > 0
+                  );
+                  const isOpen = activeDropdown === link.title;
+                  const active = isLinkActive(link.href, link.dropdownItems);
+
+                  return (
+                    <div
+                      key={`mobile-${link.id}`}
+                      className="border-b border-white/5 pb-3"
+                    >
+                      {hasDropdown ? (
+                        <div>
+                          <button
+                            type="button"
+                            onClick={() => toggleDropdown(link.title)}
+                            className={`w-full flex justify-between items-center py-2 text-base font-medium cursor-pointer transition-colors ${
+                              active ? "text-brand-primary font-bold" : "text-slate-200 hover:text-brand-primary"
+                            }`}
+                          >
+                            {link.title}
+                            <motion.div
+                              animate={{ rotate: isOpen ? 180 : 0 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <ChevronDown className="w-5 h-5 text-slate-400" />
+                            </motion.div>
+                          </button>
+
+                          <AnimatePresence>
+                            {isOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="pl-4 space-y-2 mt-1 overflow-hidden"
+                              >
+                                {link.dropdownItems?.map((subItem, idx) => {
+                                  const isSubActive = pathname === subItem.href;
+                                  return (
+                                    <Link
+                                      key={`mobile-sub-${idx}`}
+                                      href={subItem.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className={`block py-1.5 text-sm transition-colors ${
+                                        isSubActive
+                                          ? "text-brand-primary font-bold"
+                                          : "text-slate-300 hover:text-brand-primary"
+                                      }`}
+                                    >
+                                      {subItem.title}
+                                    </Link>
+                                  );
+                                })}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        <Link
+                          href={link.href || "#"}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`block py-2 text-base font-medium transition-colors ${
+                            active ? "text-brand-primary font-bold" : "text-slate-200 hover:text-brand-primary"
+                          }`}
                         >
                           {link.title}
-                          <motion.div
-                            animate={{ rotate: isOpen ? 180 : 0 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <ChevronDown className="w-5 h-5 text-slate-400" />
-                          </motion.div>
-                        </button>
+                        </Link>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
 
-                        <AnimatePresence>
-                          {isOpen && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="pl-4 space-y-2 mt-1 overflow-hidden"
-                            >
-                              {link.dropdownItems?.map((subItem, idx) => (
-                                <Link
-                                  key={`mobile-sub-${idx}`}
-                                  href={subItem.href}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="block py-1.5 text-sm text-slate-300 hover:text-brand-primary transition-colors"
-                                >
-                                  {subItem.title}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        href={link.href || "#"}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block py-2 text-base font-medium text-slate-200 hover:text-brand-primary transition-colors"
-                      >
-                        {link.title}
-                      </Link>
-                    )}
-                  </div>
-                );
-              })}
-
-              <div className="pt-4">
+              {/* Mobile CTA Drawer Footer */}
+              <div className="p-6 border-t border-white/10 bg-brand-dark-soft">
                 <Link
                   href={data.ctaButton.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center py-3 rounded-full bg-brand-primary text-brand-dark font-bold text-xs uppercase tracking-widest active:scale-95 transition-transform"
+                  className="block w-full text-center py-3 rounded-full bg-brand-primary text-brand-dark font-bold text-xs uppercase tracking-widest active:scale-95 transition-transform shadow-md"
                 >
                   {data.ctaButton.label}
                 </Link>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

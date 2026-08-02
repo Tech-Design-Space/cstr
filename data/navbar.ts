@@ -21,12 +21,7 @@ export const defaultNavbarData: NavbarData = {
       _key: "nav-1",
 
       title: "Services",
-      dropdownItems: [
-        { title: "Civil Engineering", href: "/services/civil-engineering" },
-        { title: "Real Estate Development", href: "/services/real-estate" },
-        { title: "Realtors & Property Sale", href: "/services/realtors" },
-        { title: "Project Management", href: "/services/project-management" },
-      ],
+      href: "/serivices",
     },
     {
       id: "nav-3",
@@ -34,6 +29,7 @@ export const defaultNavbarData: NavbarData = {
 
       title: "Projects",
       dropdownItems: [
+        { title: "All Projects", href: "/projects" },
         { title: "Commercial Buildings", href: "/projects/commercial" },
         { title: "Residential Estates", href: "/projects/residential" },
         { title: "Ongoing Sites", href: "/projects/ongoing" },
