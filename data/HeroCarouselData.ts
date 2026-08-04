@@ -24,7 +24,7 @@ export const defaultHeroData: HeroCarouselData = {
       title: "Building luxury estates & smart property sales",
       subtitle:
         "From premium residential developments to commercial hubs in prime locations across Abuja, we turn structural vision into high-yield real estate investments.",
-      bgImageUrl: "/images/portfolio-1a.jpg",
+      bgImageUrl: "/images/portfolio-1c.jpg",
 
       primaryCta: {
         label: "VIEW PROPERTIES",
@@ -41,7 +41,7 @@ export const defaultHeroData: HeroCarouselData = {
       title: "Precision execution from blueprint to key handover",
       subtitle:
         "End-to-end management guaranteeing structural integrity, strict budget compliance, and timely project delivery across all site operations.",
-      bgImageUrl: "/images/portfolio-1a.jpg",
+      bgImageUrl: "/images/portfolio-1b.jpg",
 
       primaryCta: {
         label: "CONSULT WITH US",

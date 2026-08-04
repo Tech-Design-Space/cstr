@@ -27,12 +27,8 @@ export const defaultNavbarData: NavbarData = {
       _key: "nav-1",
 
       title: "Projects",
-      dropdownItems: [
-        { title: "All Projects", href: "/projects" },
-        { title: "Commercial Buildings", href: "/projects/commercial" },
-        { title: "Residential Estates", href: "/projects/residential" },
-        { title: "Ongoing Sites", href: "/projects/ongoing" },
-      ],
+
+      href: "/projects",
     },
     {
       id: "nav-4",
