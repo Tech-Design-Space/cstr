@@ -19,8 +19,8 @@ export default function AboutOverviewSection({ data }: AboutOverviewProps) {
     paragraphs = [],
     keyHighlightsTitle,
     keyHighlights = [],
-    businessScopeHeading,
-    businessScopes = [],
+    // businessScopeHeading,
+    // businessScopes = [],
     closingText,
   } = config;
 
@@ -102,7 +102,7 @@ export default function AboutOverviewSection({ data }: AboutOverviewProps) {
           )}
 
           {/* Core Business Scopes */}
-          {businessScopes.length > 0 && (
+          {/* {businessScopes.length > 0 && (
             <div className="pt-2 space-y-4">
               <h4 className="font-serif font-bold text-brand-dark text-base sm:text-lg uppercase tracking-wide">
                 {businessScopeHeading}
@@ -131,7 +131,7 @@ export default function AboutOverviewSection({ data }: AboutOverviewProps) {
                 ))}
               </div>
             </div>
-          )}
+          )} */}
 
           {/* Closing Summary Paragraph */}
           {closingText && (
