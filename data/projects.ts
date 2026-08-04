@@ -4,9 +4,9 @@ export const initialProjectsData: Project[] = [
   {
     _id: "1",
     title: "SID, Anambra",
-    categories: ["BUILDING CONSTRUCTION", "DESIGN & BUILD"],
+    categories: ["BUILDING CONSTRUCTION", "DESIGN & BUILD", "CIVIL ENGINEERING"],
     mainImage: {
-      src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+      src: "/images/portfolio-1.jpg",
       alt: "SID, Anambra Building Construction",
     },
     slug: { current: "sid-anambra" },
@@ -16,7 +16,7 @@ export const initialProjectsData: Project[] = [
     title: "Kingsuite, Lagos",
     categories: ["BUILDING CONSTRUCTION", "DESIGN & BUILD"],
     mainImage: {
-      src: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80",
+      src: "/images/portfolio-1a.jpg",
       alt: "Kingsuite, Lagos Construction Site",
     },
     slug: { current: "kingsuite-lagos" },
@@ -24,9 +24,9 @@ export const initialProjectsData: Project[] = [
   {
     _id: "3",
     title: "Sky Chef, Abuja",
-    categories: ["BUILDING CONSTRUCTION", "DESIGN & BUILD"],
+    categories: ["BUILDING CONSTRUCTION", "DESIGN & BUILD", "CIVIL ENGINEERING"],
     mainImage: {
-      src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+      src: "/images/portfolio-1c.jpg",
       alt: "Sky Chef Facility in Abuja",
     },
     slug: { current: "sky-chef-abuja" },
@@ -36,7 +36,7 @@ export const initialProjectsData: Project[] = [
     title: "Sky Chef, Abuja",
     categories: ["BUILDING CONSTRUCTION", "DESIGN & BUILD"],
     mainImage: {
-      src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80",
+      src: "/images/portfolio-2.jpg",
       alt: "Sky Chef Facility in Abuja",
     },
     slug: { current: "sky-chef-abuja" },
@@ -46,7 +46,7 @@ export const initialProjectsData: Project[] = [
     title: "Sky Chef, Abuja",
     categories: ["BUILDING CONSTRUCTION", "DESIGN & BUILD"],
     mainImage: {
-      src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+      src: "/images/portfolio-4.jpg",
       alt: "Sky Chef Facility in Abuja",
     },
     slug: { current: "sky-chef-abuja" },

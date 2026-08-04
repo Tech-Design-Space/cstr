@@ -14,7 +14,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Maitama, Abuja",
       completionYear: "2025",
       imageSrc:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-1.jpg",
       href: "/projects/jiba-plaza",
       details:
         "A 6-story commercial hub featuring energy-efficient glass facade paneling, underground parking, and modern office spaces.",
@@ -26,7 +26,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Airport Road, Abuja",
       completionYear: "2024",
       imageSrc:
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-1a.jpg",
       href: "/projects/central-station",
       details:
         "Turnkey retail station development including structural steel canopy framing and high-capacity fuel tank vaults.",
@@ -38,7 +38,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Jabi, Abuja",
       completionYear: "2024",
       imageSrc:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-1b.jpg",
       href: "/projects/emerald-villas",
       details:
         "Gated community consisting of 12 detached smart duplexes featuring custom marble finishing and private outdoor areas.",
@@ -50,7 +50,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Lokogoma, Abuja",
       completionYear: "2024",
       imageSrc:
-        "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-1c.jpg",
       href: "/projects/lokogoma-expressway",
       details:
         "Dual-carriage highway expansion featuring asphalt pavement, drainage systems, pedestrian walkways, and LED street lighting.",
@@ -62,7 +62,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Lokoja, Kogi",
       completionYear: "2023",
       imageSrc:
-        "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-2.jpg",
       href: "/projects/river-unity-bridge",
       details:
         "Prestressed concrete bridge connecting major transport corridors with modern safety barriers and drainage infrastructure.",
@@ -74,7 +74,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Kubwa, Abuja",
       completionYear: "2024",
       imageSrc:
-        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-3.jpg",
       href: "/projects/federal-medical-centre",
       details:
         "Construction of a modern healthcare facility with surgical theatres, emergency units, laboratories, and patient wards.",
@@ -86,7 +86,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Minna, Niger",
       completionYear: "2023",
       imageSrc:
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-4.jpg",
       href: "/projects/unity-science-academy",
       details:
         "State-of-the-art academic complex featuring lecture halls, science laboratories, libraries, and student recreational spaces.",
@@ -98,7 +98,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Kaduna",
       completionYear: "2025",
       imageSrc:
-        "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=1200&auto=format&fit=crop",
+        "/images/portfolio-1.jpg",
       href: "/projects/prime-manufacturing-plant",
       details:
         "Large-scale industrial production facility incorporating reinforced concrete structures, warehouse space, and utilities.",
@@ -110,7 +110,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Kano",
       completionYear: "2024",
       imageSrc:
-        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+      "/images/portfolio-1a.jpg",
       href: "/projects/northern-logistics",
       details:
         "High-capacity logistics warehouse featuring automated loading docks, storage systems, and distribution facilities.",
@@ -122,7 +122,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Wuse II, Abuja",
       completionYear: "2025",
       imageSrc:
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop",
+ "/images/portfolio-1b.jpg",
       href: "/projects/grand-sapphire-hotel",
       details:
         "Premium hospitality development featuring luxury guest suites, conference halls, restaurants, and rooftop amenities.",
@@ -134,7 +134,7 @@ export const defaultProjectsData: FeaturedProjectsData = {
       location: "Abuja",
       completionYear: "2023",
       imageSrc:
-        "https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1200&auto=format&fit=crop",
+       "/images/portfolio-1c.jpg",
       href: "/projects/sports-arena",
       details:
         "Renovation and structural enhancement of stadium facilities including seating, floodlights, VIP lounges, and sports courts.",

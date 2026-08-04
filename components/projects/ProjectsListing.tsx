@@ -13,7 +13,6 @@ const CATEGORIES: CategoryFilter[] = [
   "BUILDING CONSTRUCTION",
   "CIVIL ENGINEERING",
   "DESIGN & BUILD",
-  "FACILITY MANAGEMENT",
 ];
 
 const ITEMS_PER_PAGE = 3;
@@ -67,7 +66,7 @@ export default function ProjectsListing() {
           title: "Civic Center Expansion, Port Harcourt",
           categories: ["CIVIL ENGINEERING", "FACILITY MANAGEMENT"],
           mainImage: {
-            src: "/images/projects/sid-anambra.jpg",
+            src: "/images/portfolio-1.jpg",
             alt: "Civic Center Expansion",
           },
           slug: { current: "civic-center-ph" },
@@ -77,7 +76,7 @@ export default function ProjectsListing() {
           title: "Eko Tech Hub, Lagos",
           categories: ["DESIGN & BUILD", "BUILDING CONSTRUCTION"],
           mainImage: {
-            src: "/images/projects/kingsuite-lagos.jpg",
+            src: "/images/portfolio-1b.jpg",
             alt: "Eko Tech Hub Construction",
           },
           slug: { current: "eko-tech-hub" },
