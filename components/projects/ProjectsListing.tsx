@@ -144,7 +144,7 @@ export default function ProjectsListing() {
                   transition={{ duration: 0.3 }}
                   className="group flex flex-col cursor-pointer"
                 >
-                  <Link href={`/projects/${project.slug?.current || "#"}`}>
+                  <Link href={"#"}>
                     {/* Project Image Frame */}
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-light mb-4">
                       <Image
