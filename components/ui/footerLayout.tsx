@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Mail, Clock, ArrowUpRight } from 'lucide-react';
+import { MapPin, Mail, Clock, ArrowUpRight, ChevronUp } from 'lucide-react';
 import { 
   FaLinkedinIn, 
   FaXTwitter, 
@@ -22,7 +22,6 @@ export default function FooterSection({ data }: FooterSectionProps) {
   const {
     logoType = 'image',
     logoImageUrl,
- 
     companyName,
     tagline,
     description,
@@ -30,10 +29,34 @@ export default function FooterSection({ data }: FooterSectionProps) {
     email,
     workingHours,
     quickLinks = [],
-    // servicesLinks = [],
     socialLinks = [],
     copyrightText,
   } = config;
+
+  // State to manage 'Go to top' button visibility
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Monitor scroll position to show/hide button
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Smooth scroll to top handler
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   const renderSocialIcon = (iconName: SocialLinkItem['iconName']) => {
     switch (iconName) {
@@ -51,7 +74,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
   };
 
   return (
-    <footer className="w-full bg-brand-dark text-slate-300 font-sans border-t-4 border-brand-primary pt-16 pb-8">
+    <footer className="relative w-full bg-brand-dark text-slate-300 font-sans border-t-4 border-brand-primary pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Content Grid */}
@@ -59,8 +82,6 @@ export default function FooterSection({ data }: FooterSectionProps) {
           
           {/* Column 1: Brand Info & Bio */}
           <div className="space-y-4">
-            
-            {/* DYNAMIC LOGO HEADER (Image OR Text) */}
             <div>
               {logoType === 'image' && logoImageUrl ? (
                 <Link href="/" className="inline-block focus:outline-none">
@@ -128,27 +149,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
             </ul>
           </div>
 
-          {/* Column 3: Core Services */}
-          {/* <div>
-            <h4 className="text-base font-serif font-bold text-white tracking-wide uppercase mb-4 border-b border-brand-primary/40 pb-2 inline-block">
-              Our Expertise
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              {servicesLinks.map((link, idx) => (
-                <li key={idx}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-brand-primary transition-colors duration-200 flex items-center gap-1.5 group"
-                  >
-                    <span className="text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity">›</span>
-                    <span>{link.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div> */}
-
-          {/* Column 4: Contact & Office Info */}
+          {/* Column 3: Contact & Office Info */}
           <div>
             <h4 className="text-base font-serif font-bold text-white tracking-wide uppercase mb-4 border-b border-brand-primary/40 pb-2 inline-block">
               Head Office
@@ -189,14 +190,24 @@ export default function FooterSection({ data }: FooterSectionProps) {
             <Link href="/privacy-policy" className="hover:text-brand-primary transition-colors">
               Privacy Policy
             </Link>
-            {/* <Link href="/terms-of-service" className="hover:text-brand-primary transition-colors">
-              Terms of Service
-            </Link> */}
-         
           </div>
         </div>
 
       </div>
+
+      {/* Floating Go To Top Button */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        className={`fixed bottom-6 right-6 z-40 p-3 rounded-sm bg-brand-primary text-brand-dark hover:bg-brand-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none cursor-pointer ${
+          showScrollTop
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+      >
+        <ChevronUp className="w-5 h-5 stroke-[2.5]" />
+      </button>
     </footer>
   );
 }

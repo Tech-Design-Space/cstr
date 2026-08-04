@@ -3,6 +3,7 @@ import { Inter, Cinzel } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/headerLayout";
 import Footer from "@/components/ui/footerLayout";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,6 +47,8 @@ export default function RootLayout({
         {children}
 
         <Footer />
+
+        <WhatsAppButton phoneNumber="2347037260013" />
       </body>
     </html>
   );

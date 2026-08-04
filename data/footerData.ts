@@ -9,7 +9,7 @@ export const defaultFooterData: FooterSectionData = {
   description:
     "Delivering premier commercial, civil infrastructure, and luxury residential projects with uncompromising safety and craftsmanship.",
   officeAddress: "Plot 12, Industrial Layout, Commercial Avenue, City Center",
-  email: "info@jibaconstruction.com",
+  email: " jibaconstructionltd@gmail.com",
   workingHours: "Mon - Sat: 8:00 AM - 6:00 PM",
   quickLinks: [
     { label: "About Our Firm", href: "/about" },
