@@ -8,8 +8,7 @@ export const defaultHeroData: HeroCarouselData = {
       title: "Your most reliable construction partner",
       subtitle:
         "We collaborate with visionaries and organizations to deliver world-class infrastructure, commercial builds, and sustainable civil engineering solutions.",
-  bgImageUrl:
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop",
+      bgImageUrl: "/images/portfolio-1a.jpg",
       primaryCta: {
         label: "OUR SERVICES",
         href: "/services",
@@ -25,8 +24,8 @@ export const defaultHeroData: HeroCarouselData = {
       title: "Building luxury estates & smart property sales",
       subtitle:
         "From premium residential developments to commercial hubs in prime locations across Abuja, we turn structural vision into high-yield real estate investments.",
-  bgImageUrl:
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop",
+      bgImageUrl: "/images/portfolio-1a.jpg",
+
       primaryCta: {
         label: "VIEW PROPERTIES",
         href: "/services/realtors",
@@ -42,8 +41,8 @@ export const defaultHeroData: HeroCarouselData = {
       title: "Precision execution from blueprint to key handover",
       subtitle:
         "End-to-end management guaranteeing structural integrity, strict budget compliance, and timely project delivery across all site operations.",
-      bgImageUrl:
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop",
+      bgImageUrl: "/images/portfolio-1a.jpg",
+
       primaryCta: {
         label: "CONSULT WITH US",
         href: "#contact",
