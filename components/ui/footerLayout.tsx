@@ -186,10 +186,12 @@ export default function FooterSection({ data }: FooterSectionProps) {
           <p>{copyrightText}</p>
 
           <div className="flex items-center gap-6">
-         
-            <Link href="/terms-of-service" className="hover:text-brand-primary transition-colors">
-              Terms of Service
+            <Link href="/privacy-policy" className="hover:text-brand-primary transition-colors">
+              Privacy Policy
             </Link>
+            {/* <Link href="/terms-of-service" className="hover:text-brand-primary transition-colors">
+              Terms of Service
+            </Link> */}
          
           </div>
         </div>

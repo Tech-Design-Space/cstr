@@ -153,7 +153,7 @@ export default function HeroCarousel({
         type="button"
         onClick={scrollPrev}
         aria-label="Previous Slide"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-brand-primary hover:text-brand-dark text-white flex items-center justify-center backdrop-blur-md transition-all duration-200 group border border-white/10 cursor-pointer"
+        className="hidden  absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-brand-primary hover:text-brand-dark text-white md:flex items-center justify-center backdrop-blur-md transition-all duration-200 group border border-white/10 cursor-pointer"
       >
         <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 transform group-hover:-translate-x-0.5 transition-transform" />
       </button>
@@ -163,7 +163,7 @@ export default function HeroCarousel({
         type="button"
         onClick={scrollNext}
         aria-label="Next Slide"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-brand-primary hover:text-brand-dark text-white flex items-center justify-center backdrop-blur-md transition-all duration-200 group border border-white/10 cursor-pointer"
+        className="hidden absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/40 hover:bg-brand-primary hover:text-brand-dark text-white md:flex items-center justify-center backdrop-blur-md transition-all duration-200 group border border-white/10 cursor-pointer"
       >
         <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 transform group-hover:translate-x-0.5 transition-transform" />
       </button>
