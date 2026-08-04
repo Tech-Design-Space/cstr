@@ -78,7 +78,7 @@ export default function AboutClientsSection({ data }: AboutClientsProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-lg p-8 border border-slate-200 shadow-sm grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center"
+            className="bg-white rounded-lg p-8 border border-slate-200 shadow-sm grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 items-center"
           >
             {clients.map((client, idx) => (
               <ClientCard key={client.id || idx} client={client} />

@@ -18,13 +18,7 @@ export const defaultFooterData: FooterSectionData = {
     { label: "Request Quotation", href: "/contact" },
     { label: "Privacy & Policy", href: "/privacy-policy" },
   ],
-  servicesLinks: [
-    { label: "Civil Infrastructure", href: "/services#civil" },
-    { label: "Commercial Building", href: "/services#commercial" },
-    { label: "Structural Engineering", href: "/services#structural" },
-    { label: "Project Management", href: "/services#management" },
-    { label: "Architectural Planning", href: "/services#architecture" },
-  ],
+
   socialLinks: [
     { platform: "LinkedIn", href: "#", iconName: "linkedin" },
     { platform: "Twitter", href: "#", iconName: "twitter" },

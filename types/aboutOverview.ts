@@ -12,7 +12,7 @@ export interface AboutOverviewSectionData {
   paragraphs: string[];
   keyHighlightsTitle?: string;
   keyHighlights: string[];
-  businessScopeHeading: string;
-  businessScopes: OverviewBusinessScope[];
+  // businessScopeHeading: string;
+  // businessScopes: OverviewBusinessScope[];
   closingText?: string;
 }

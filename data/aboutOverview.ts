@@ -15,21 +15,21 @@ export const defaultAboutOverviewData: AboutOverviewSectionData = {
     "End-to-end management from initial architectural planning to structural handover.",
     "Uncompromising commitment to safety compliance and structural audits.",
   ],
-  businessScopeHeading: "JIBA CONSTRUCTION IS REGISTERED TO CARRY OUT THE FOLLOWING BUSINESSES:",
-  businessScopes: [
-    {
-      id: "A",
-      title: "Real Estate Development",
-      subtitle: "Private, corporate, and mass housing developments",
-    },
-    {
-      id: "B",
-      title: "Estate Management & Maintenance Services",
-    },
-    {
-      id: "C",
-      title: "Civil Works, Engineering Contracts & Consultancy",
-    },
-  ],
-  closingText: "Our professionals work alongside developers, corporate bodies, and private owners to transform ambitious blueprints into living, solid realities. Jiba Construction stands ready to handle your structural and civil engineering needs.",
+  // businessScopeHeading: "JIBA CONSTRUCTION IS REGISTERED TO CARRY OUT THE FOLLOWING BUSINESSES:",
+  // businessScopes: [
+  //   {
+  //     id: "A",
+  //     title: "Real Estate Development",
+  //     subtitle: "Private, corporate, and mass housing developments",
+  //   },
+  //   {
+  //     id: "B",
+  //     title: "Estate Management & Maintenance Services",
+  //   },
+  //   {
+  //     id: "C",
+  //     title: "Civil Works, Engineering Contracts & Consultancy",
+  //   },
+  // ],
+  // closingText: "Our professionals work alongside developers, corporate bodies, and private owners to transform ambitious blueprints into living, solid realities. Jiba Construction stands ready to handle your structural and civil engineering needs.",
 };

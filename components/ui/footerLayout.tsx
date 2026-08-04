@@ -30,7 +30,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
     email,
     workingHours,
     quickLinks = [],
-    servicesLinks = [],
+    // servicesLinks = [],
     socialLinks = [],
     copyrightText,
   } = config;
@@ -55,7 +55,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14 border-b border-brand-dark-soft/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 pb-14 border-b border-brand-dark-soft/80">
           
           {/* Column 1: Brand Info & Bio */}
           <div className="space-y-4">
@@ -129,7 +129,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
           </div>
 
           {/* Column 3: Core Services */}
-          <div>
+          {/* <div>
             <h4 className="text-base font-serif font-bold text-white tracking-wide uppercase mb-4 border-b border-brand-primary/40 pb-2 inline-block">
               Our Expertise
             </h4>
@@ -146,7 +146,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 4: Contact & Office Info */}
           <div>
@@ -186,15 +186,11 @@ export default function FooterSection({ data }: FooterSectionProps) {
           <p>{copyrightText}</p>
 
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-brand-primary transition-colors">
-              Privacy Policy
-            </Link>
+         
             <Link href="/terms-of-service" className="hover:text-brand-primary transition-colors">
               Terms of Service
             </Link>
-            <Link href="/sitemap" className="hover:text-brand-primary transition-colors">
-              Sitemap
-            </Link>
+         
           </div>
         </div>
 

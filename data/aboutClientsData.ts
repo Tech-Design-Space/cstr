@@ -5,7 +5,7 @@ export const defaultAboutClientsData: AboutClientsSectionData = {
   title: "OUR CLIENTS",
   description:
     "We have built enduring relationships with government bodies, financial institutions, and global corporations through consistent delivery of landmark projects.",
-  showCategories: true, // Set to false for a flat grid
+  showCategories: false, // Set to false for a flat grid
   categories: [
     {
       id: "gov",
@@ -75,22 +75,22 @@ export const defaultAboutClientsData: AboutClientsSectionData = {
     {
       id: "1",
       name: "Federal Government of Nigeria",
-      logoUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=300&q=80",
+      logoUrl: "/images/client-2.jpg",
     },
     {
       id: "2",
       name: "Lagos State Government",
-      logoUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=300&q=80",
+      logoUrl: "/images/client1.png",
     },
     {
       id: "3",
       name: "UNDP",
-      logoUrl: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=300&q=80",
+     logoUrl: "/images/client-3.jpg",
     },
     {
       id: "4",
       name: "Oando",
-      logoUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=300&q=80",
+        logoUrl: "/images/client1.png",
     },
   ],
 };

@@ -19,7 +19,7 @@ export interface FooterSectionData {
   email?: string;
   workingHours?: string;
   quickLinks: NavLinkItem[];
-  servicesLinks: NavLinkItem[];
+  // servicesLinks: NavLinkItem[];
   socialLinks: SocialLinkItem[];
   copyrightText: string;
 }

@@ -4,8 +4,8 @@ export const defaultSocialProofData: SocialProofSectionData = {
   heading: 'Trusted by more than 3,000 clients around the world',
   subheading:
     'We are very proud of the service we provide and stand by every project we carry out. Read testimonials from our happy partners.',
-  showTestimonials: true,
-  showClientLogos: false,
+  showTestimonials: false,
+  showClientLogos: true,
   testimonials: [
     {
       id: 'test-1',
