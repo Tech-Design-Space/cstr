@@ -3,9 +3,9 @@ import { ContactSectionData } from "@/types/contact";
 export const defaultContactSectionData: ContactSectionData = {
   officeInfo: {
     officeTitle: "Nigeria Office",
-    address: "Business Centre, Oluwole Street, 36, Ejigbo, Lagos State, Nigeria",
-    phone: "+234 904 342 0796",
-    email: "info@jibaconstruction.com",
+    address: "Business Centre, 36 Ayinde Street, Abuja FCT, Nigeria",
+    phone: "+234 703 726 0013",
+    email: "jibaconstructionltd@gmail.com",
     website: "www.jibaconstruction.com",
   },
   businessHours: {
