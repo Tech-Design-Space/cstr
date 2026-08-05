@@ -57,7 +57,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                     width={data.logoImage.width}
                     height={data.logoImage.height}
                     priority
-                    className="h-10 sm:h-12 lg:h-24 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                    className="h-17 sm:h-12 lg:h-24 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
               ) : (
