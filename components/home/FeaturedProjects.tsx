@@ -112,7 +112,7 @@ export default function FeaturedProjects({
             {data.projects.map((project, index) => (
               <div
                 key={project.id}
-                className="flex-[0_0_88%] sm:flex-[0_0_48%] lg:flex-[0_0_31.5%] min-w-0"
+                className="flex-[0_0_88%] sm:flex-[0_0_48%] lg:flex-[0_0_31.5%] min-w-0 "
               >
                 {/* Clickable Card triggers Lightbox */}
                 <div
@@ -136,9 +136,9 @@ export default function FeaturedProjects({
                   </div>
 
                   {/* Completion Year Tag */}
-                  <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-brand-dark font-sans shadow-sm">
+                  {/* <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-brand-dark font-sans shadow-sm">
                     {project.completionYear}
-                  </div>
+                  </div> */}
 
                   {/* Bottom Text Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-7 flex flex-col justify-end">

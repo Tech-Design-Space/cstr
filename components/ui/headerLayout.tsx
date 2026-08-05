@@ -44,7 +44,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 w-full bg-brand-dark text-white border-b border-white/10 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 lg:h-28">
           
           {/* Logo Brand Section */}
           <div className="flex-shrink-0 flex items-center gap-2">
@@ -57,7 +57,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                     width={data.logoImage.width}
                     height={data.logoImage.height}
                     priority
-                    className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                    className="h-10 sm:h-12 lg:h-24 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
               ) : (

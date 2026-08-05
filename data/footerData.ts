@@ -1,14 +1,14 @@
 import { FooterSectionData } from "@/types/footer";
 
 export const defaultFooterData: FooterSectionData = {
-  logoType: "text", 
-  logoImageUrl: "/jiba-logo.png", 
+  logoType: "image", 
+  logoImageUrl: "/jiba-logo-2.png", 
 
   companyName: "JIBA CONSTRUCTION",
   tagline: "Engineering Excellence & Structural Integrity",
   description:
     "Delivering premier commercial, civil infrastructure, and luxury residential projects with uncompromising safety and craftsmanship.",
-  officeAddress: "Plot 12, Industrial Layout, Commercial Avenue, City Center",
+  officeAddress: "Sabon Lugbe / Pyakasa District, Abuja, FCT, Nigeria",
   email: " jibaconstructionltd@gmail.com",
   workingHours: "Mon - Sat: 8:00 AM - 6:00 PM",
   quickLinks: [

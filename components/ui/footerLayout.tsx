@@ -90,7 +90,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
                     alt={companyName || 'Company Logo'}
                     width={150}
                     height={150}
-                    className="object-contain h-auto max-h-14 w-auto"
+                    className="object-contain h-auto max-h-14 lg:max-h-22 w-auto"
                   />
                 </Link>
               ) : (

@@ -62,7 +62,7 @@ import { ServicesOverviewData } from "@/types/services";
 export const defaultServicesMainData: ServicesOverviewData = {
   subheading: "WE'RE HERE TO HELP YOU",
   heading: "WHAT ARE YOU LOOKING FOR?",
-  bgImageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+  bgImageUrl: "/images/project63.webp",
   services: [
     {
       id: "srv-1",
@@ -71,7 +71,7 @@ export const defaultServicesMainData: ServicesOverviewData = {
         "We continuously train and retrain our team members—that’s why we never fail to deliver top-tier commercial and residential construction.",
       iconName: "Building2",
       ctaText: "Get Quotation",
-      ctaHref: "/contact?service=building-construction",
+      ctaHref: "/contact",
     },
     {
       id: "srv-2",
@@ -80,7 +80,7 @@ export const defaultServicesMainData: ServicesOverviewData = {
         "We strive to maintain the highest standard of quality and structural longevity while staying strictly on time and within budget.",
       iconName: "Road",
       ctaText: "Get Quotation",
-      ctaHref: "/contact?service=road-construction",
+      ctaHref: "/contact",
     },
     {
       id: "srv-3",
@@ -89,7 +89,7 @@ export const defaultServicesMainData: ServicesOverviewData = {
         "We have the technical resources and strategies in place to build modern bridges and complex civil infrastructure at tight deadlines.",
       iconName: "Bridge",
       ctaText: "Get Quotation",
-      ctaHref: "/contact?service=bridge-construction",
+      ctaHref: "/contact",
     },
   ],
 };

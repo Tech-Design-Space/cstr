@@ -3,7 +3,7 @@ import { ContactSectionData } from "@/types/contact";
 export const defaultContactSectionData: ContactSectionData = {
   officeInfo: {
     officeTitle: "Nigeria Office",
-    address: "Business Centre, 36 Ayinde Street, Abuja FCT, Nigeria",
+    address: "Sabon Lugbe / Pyakasa District, Abuja, FCT, Nigeria",
     phone: "+234 703 726 0013",
     email: "jibaconstructionltd@gmail.com",
     website: "www.jibaconstruction.com",

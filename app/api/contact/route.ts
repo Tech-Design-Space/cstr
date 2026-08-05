@@ -132,7 +132,7 @@ export async function POST(req: Request) {
     }
 
     // 3. Dispatch Parallel Emails via Resend
-    const adminEmail = process.env.CONTACT_FORM_TO_EMAIL || "info@jibaconstruction.com";
+    const adminEmail = process.env.CONTACT_FORM_TO_EMAIL || "jibaconstructionltd@gmail.com";
     const senderEmail = "Jiba Construction <onboarding@resend.dev>"; // Replace with your verified domain in production
 
     await Promise.all([

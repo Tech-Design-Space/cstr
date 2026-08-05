@@ -1,52 +1,23 @@
-export interface Project {
-  _id: string;
-  title: string;
-  categories: string[];
-  mainImage: {
-    src: string;
-    alt: string;
-  };
-  slug?: {
-    current: string;
-  };
-}
+// types/project.ts
 
-export type CategoryFilter = 
-  | "ALL"
-  | "BUILDING CONSTRUCTION"
-  | "CIVIL ENGINEERING"
-  | "DESIGN & BUILD"
-  | "FACILITY MANAGEMENT";
-
-
-
-
-
-
-
-
-
-
-
-  export interface ProjectGalleryImage {
+export interface ProjectImage {
   src: string;
   alt: string;
 }
 
-export interface ProjectDetails {
-  _id: string;
+export interface Project {
+  id: string; // Changed from _id to id to match requested data style
+  category: string; // Changed from categories[] to single category
   title: string;
-  subtitle?: string;
-  client: string;
-  projectName: string;
-  description: string;
-  categories: string[];
-  mainImage: {
-    src: string;
-    alt: string;
-  };
-  galleryImages: ProjectGalleryImage[];
-  slug: {
-    current: string;
-  };
+  location: string;
+  completionYear: string;
+  imageSrc: string; // Changed from mainImage object to imageSrc string
+  details: string;
 }
+
+export type CategoryFilter =
+  | "ALL"
+  | "BUILDING CONSTRUCTION"
+  | "CIVIL ENGINEERING"
+  | "DESIGN & BUILD"
+  | "RESIDENTIAL DEVELOPMENT"; // Added to match new data

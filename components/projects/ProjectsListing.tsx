@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronRight, Loader2, AlertCircle } from "lucide-react";
+import { Loader2, AlertCircle, MapPin, Expand } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Project, CategoryFilter } from "@/types/project";
 import { initialProjectsData } from "@/data/projects";
@@ -13,105 +12,106 @@ const CATEGORIES: CategoryFilter[] = [
   "BUILDING CONSTRUCTION",
   "CIVIL ENGINEERING",
   "DESIGN & BUILD",
+  "RESIDENTIAL DEVELOPMENT",
 ];
 
-const ITEMS_PER_PAGE = 3;
+interface ProjectsListingProps {
+  initialProjects?: Project[];
+  pageSize?: number;
+  onFetchMore?: (page: number, category: CategoryFilter) => Promise<Project[]>;
+}
 
-export default function ProjectsListing() {
-  const [projects, setProjects] = useState<Project[]>(initialProjectsData);
+export default function ProjectsListing({
+  initialProjects = initialProjectsData,
+  pageSize = 3,
+  onFetchMore,
+}: ProjectsListingProps) {
+  // Core State
+  const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("ALL");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [hasMore, setHasMore] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(pageSize);
+
+  // Async & Error State
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  // Sync internal state if initialProjects prop updates
+  useEffect(() => {
+    if (initialProjects.length > 0) {
+      setProjects(initialProjects);
+    }
+  }, [initialProjects]);
+
+  // Reset pagination state when switching active category
+  const handleCategoryChange = (category: CategoryFilter) => {
+    setActiveCategory(category);
+    setFetchError(null);
+    setVisibleCount(pageSize);
+  };
 
   // Filter projects dynamically based on active category
   const filteredProjects = projects.filter((project) => {
     if (activeCategory === "ALL") return true;
-    return project.categories.some(
-      (cat) => cat.toUpperCase() === activeCategory
-    );
+    return project.category.toUpperCase() === activeCategory.toUpperCase();
   });
 
-  // Asynchronous Fetching function (Ready for Sanity GROQ Integration)
+  // Load More Handler matching reference pattern
   const handleLoadMore = async () => {
-    setIsLoading(true);
-    setError(null);
+    setFetchError(null);
+    setIsLoadingMore(true);
 
     try {
-      // Sanity GROQ query placeholder:
-      /*
-      const query = `*[_type == "project" ${
-        activeCategory !== "ALL" ? '&& $category in categories' : ''
-      }] | order(_createdAt desc) [$start..$end] {
-        _id,
-        title,
-        categories,
-        mainImage,
-        slug
-      }`;
-      const params = { 
-        start: projects.length, 
-        end: projects.length + ITEMS_PER_PAGE - 1,
-        category: activeCategory 
-      };
-      const newProjects = await sanityClient.fetch(query, params);
-      */
+      if (onFetchMore) {
+        const nextPage = currentPage + 1;
+        const newItems = await onFetchMore(nextPage, activeCategory);
 
-      // Simulated delay & data load
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-
-      const mockMoreProjects: Project[] = [
-        {
-          _id: `proj-${projects.length + 1}`,
-          title: "Civic Center Expansion, Port Harcourt",
-          categories: ["CIVIL ENGINEERING", "FACILITY MANAGEMENT"],
-          mainImage: {
-            src: "/images/portfolio-1.jpg",
-            alt: "Civic Center Expansion",
-          },
-          slug: { current: "civic-center-ph" },
-        },
-        {
-          _id: `proj-${projects.length + 2}`,
-          title: "Eko Tech Hub, Lagos",
-          categories: ["DESIGN & BUILD", "BUILDING CONSTRUCTION"],
-          mainImage: {
-            src: "/images/portfolio-1b.jpg",
-            alt: "Eko Tech Hub Construction",
-          },
-          slug: { current: "eko-tech-hub" },
-        },
-      ];
-
-      if (mockMoreProjects.length < ITEMS_PER_PAGE) {
-        setHasMore(false);
+        if (Array.isArray(newItems) && newItems.length > 0) {
+          setProjects((prev) => [...prev, ...newItems]);
+          setCurrentPage(nextPage);
+          setVisibleCount((prev) => prev + newItems.length);
+        } else {
+          // No additional remote items available
+          setVisibleCount(filteredProjects.length);
+        }
+      } else {
+        // Local pagination state advancement
+        setVisibleCount((prev) =>
+          Math.min(prev + pageSize, filteredProjects.length)
+        );
       }
-
-      setProjects((prev) => [...prev, ...mockMoreProjects]);
     } catch (err) {
-      console.error("Error fetching more projects:", err);
-      setError("Failed to load more projects. Please try again.");
+      console.error("Failed to load more projects:", err);
+      setFetchError("Unable to load additional projects. Please try again.");
     } finally {
-      setIsLoading(false);
+      setIsLoadingMore(false);
     }
   };
 
+  const openLightbox = (projectId: string) => {
+    // Placeholder lightbox execution handler
+    console.log(`Open lightbox for project ID: ${projectId}`);
+  };
+
+  // Computed displayed slice & threshold check
+  const displayedProjects = filteredProjects.slice(0, visibleCount);
+  const hasMoreToLoad =
+    visibleCount < filteredProjects.length || Boolean(onFetchMore);
+
   return (
-    <section className="py-16 bg-white text-slate-800">
+    <section className="relative w-full py-20 lg:py-28 bg-white border-t border-slate-200/80 overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Category Tabs Navigation */}
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-slate-200 pb-4 mb-12">
+        {/* Category Filter Navigation */}
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-slate-200 pb-4 mb-16">
           {CATEGORIES.map((category) => {
             const isActive = activeCategory === category;
             return (
               <button
                 key={category}
-                onClick={() => {
-                  setActiveCategory(category);
-                  setError(null);
-                }}
-                className={`text-xs sm:text-sm font-semibold tracking-wider transition-colors duration-200 relative pb-2 cursor-pointer ${
+                type="button"
+                onClick={() => handleCategoryChange(category)}
+                className={`text-xs sm:text-sm font-semibold tracking-wider font-sans transition-colors duration-200 relative pb-2 cursor-pointer uppercase ${
                   isActive
                     ? "text-brand-dark border-b-2 border-brand-primary font-bold"
                     : "text-slate-500 hover:text-brand-dark"
@@ -123,83 +123,96 @@ export default function ProjectsListing() {
           })}
         </div>
 
-        {/* Projects Grid */}
-        {filteredProjects.length === 0 ? (
-          <div className="text-center py-16 text-slate-500 font-medium">
+        {/* Projects Grid Container */}
+        {displayedProjects.length === 0 ? (
+          <div className="text-center py-24 text-slate-500 font-medium bg-slate-50 rounded-xl border border-slate-100">
             No projects found in this category.
           </div>
-    ) : (
-          <motion.div 
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            <AnimatePresence>
-              {filteredProjects.map((project) => (
-                <motion.article
-                  key={project._id}
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            <AnimatePresence mode="popLayout">
+              {displayedProjects.map((project, idx) => (
+                <motion.div
+                  key={project.id || `proj-item-${idx}`}
                   layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  className="group flex flex-col cursor-pointer"
+                  initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{
+                    duration: 0.35,
+                    delay: (idx % pageSize) * 0.05,
+                  }}
+                  className="group"
                 >
-                  <Link href={"#"}>
-                    {/* Project Image Frame */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-light mb-4">
-                      <Image
-                        src={project.mainImage.src}
-                        alt={project.mainImage.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
+                  {/* Card Triggering Lightbox */}
+                  <div
+                    onClick={() => openLightbox(project.id)}
+                    className="relative h-[480px] rounded-3xl overflow-hidden shadow-lg cursor-pointer select-none border border-slate-100"
+                  >
+                    <Image
+                      src={project.imageSrc}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
 
-                    {/* Content Details */}
-                    <div className="flex items-start justify-between pr-2">
-                      <div className="space-y-1">
-                        <h3 className="text-lg font-bold text-brand-dark group-hover:text-brand-primary transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-slate-500 font-normal">
-                          {project.categories.join(", ")}
-                        </p>
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/45 to-transparent transition-opacity duration-300" />
+
+                 
+
+                    {/* Completion Year Tag */}
+                    {/* <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-bold text-brand-dark font-sans shadow-md z-10 tracking-wider">
+                      {project.completionYear}
+                    </div> */}
+
+                    {/* Bottom Details Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end z-10">
+                      <span className="text-brand-primary text-xs font-bold uppercase tracking-widest font-sans mb-3 block border-b-2 border-brand-primary self-start pb-0.5">
+                        {project.category}
+                      </span>
+
+                      <h3 className="text-2xl lg:text-3xl font-serif font-bold text-white mb-3 leading-tight group-hover:text-brand-primary transition-colors duration-300">
+                        {project.title}
+                      </h3>
+
+                      <div className="flex items-center gap-2 text-slate-300 text-sm font-sans font-normal border-t border-white/10 pt-3 mt-1">
+                        <MapPin className="w-4 h-4 text-brand-primary shrink-0" />
+                        <span>{project.location}</span>
                       </div>
-
-                      {/* Arrow Icon Indicator */}
-                      <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-brand-primary group-hover:translate-x-1 transition-all duration-200 mt-1 flex-shrink-0" />
                     </div>
-                  </Link>
-                </motion.article>
+                  </div>
+                </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
-        )}
-
-        {/* Error Notification Handling */}
-        {error && (
-          <div className="mt-8 flex items-center justify-center gap-2 text-brand-accent text-sm font-medium">
-            <AlertCircle className="w-4 h-4" />
-            <span>{error}</span>
           </div>
         )}
 
-        {/* Load More Button Controls */}
-        {hasMore && (
+        {/* Error Feedback Message */}
+        {fetchError && (
+          <div className="mt-8 flex items-center justify-center gap-2 text-rose-600 text-sm font-medium bg-rose-50 border border-rose-200 py-3 px-4 rounded-lg max-w-md mx-auto">
+            <AlertCircle className="w-4 h-4 shrink-0" />
+            <span>{fetchError}</span>
+          </div>
+        )}
+
+        {/* Async Load More Button */}
+        {hasMoreToLoad && (
           <div className="mt-16 text-center">
             <button
+              type="button"
               onClick={handleLoadMore}
-              disabled={isLoading}
-              className="inline-flex items-center justify-center px-8 py-3.5 border border-brand-dark text-brand-dark font-bold text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer"
+              disabled={isLoadingMore}
+              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-brand-primary text-brand-dark font-sans font-bold text-xs uppercase tracking-widest rounded-sm hover:bg-brand-primary-dark transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
             >
-              {isLoading ? (
+              {isLoadingMore ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin text-brand-primary" />
-                  Loading...
+                  <Loader2 className="w-4 h-4 animate-spin text-brand-dark" />
+                  <span>Loading Projects...</span>
                 </>
               ) : (
-                "Load More Projects"
+                <span>Load More Projects</span>
               )}
             </button>
           </div>

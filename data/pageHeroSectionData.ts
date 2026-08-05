@@ -10,6 +10,6 @@ export const defaultServicesHeroData: PageHeroSectionData = {
   ],
   showScrollIndicator: true,
   bgImageUrl:
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+    "/images/project52.webp",
   overlayOpacity: "bg-brand-dark/70",
 };

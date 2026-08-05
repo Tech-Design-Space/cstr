@@ -143,9 +143,9 @@ export default function ProjectLightbox({
                           <span className="text-brand-primary text-xs font-bold uppercase tracking-widest">
                             {project.category}
                           </span>
-                          <span className="text-xs bg-white/10 px-2.5 py-1 rounded-full text-slate-300">
+                          {/* <span className="text-xs bg-white/10 px-2.5 py-1 rounded-full text-slate-300">
                             {project.completionYear}
-                          </span>
+                          </span> */}
                         </div>
 
                         <h3 className="text-2xl sm:text-3xl font-serif font-bold mb-3 text-white">
@@ -166,13 +166,13 @@ export default function ProjectLightbox({
 
                       {/* External Details Link & Mobile Nav Controls */}
                       <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-4">
-                        <a
+                        {/* <a
                           href={project.href}
                           className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-primary hover:underline"
                         >
                           View Full Case Study
                           <ExternalLink className="w-4 h-4" />
-                        </a>
+                        </a> */}
 
                         {/* Mobile Arrows */}
                         <div className="flex sm:hidden items-center gap-2">

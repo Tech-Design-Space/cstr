@@ -2,7 +2,7 @@ import { NavbarData } from "@/types/navbar";
 
 export const defaultNavbarData: NavbarData = {
   logoImage: {
-    src: "/jiba-logo.png",
+    src: "/jiba-logo-2.png",
     alt: "JIBA CONSTRUCTION LIMITED Logo",
     width: 180,
     height: 50,
