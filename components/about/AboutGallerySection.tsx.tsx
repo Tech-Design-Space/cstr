@@ -149,7 +149,7 @@ export default function AboutGallerySection({
     visibleCount < galleryImages.length || Boolean(onFetchMore);
 
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-white border-t border-slate-200/80 overflow-hidden">
+    <section id={"gallery-section"} className="relative w-full py-20 lg:py-28 bg-white border-t border-slate-200/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         {(eyebrow || title) && (
