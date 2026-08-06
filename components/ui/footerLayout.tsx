@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Mail, Clock, ArrowUpRight, ChevronUp } from 'lucide-react';
@@ -33,10 +33,8 @@ export default function FooterSection({ data }: FooterSectionProps) {
     copyrightText,
   } = config;
 
-  // State to manage 'Go to top' button visibility
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Monitor scroll position to show/hide button
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -50,7 +48,6 @@ export default function FooterSection({ data }: FooterSectionProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth scroll to top handler
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -74,11 +71,11 @@ export default function FooterSection({ data }: FooterSectionProps) {
   };
 
   return (
-    <footer className="relative w-full bg-brand-dark text-slate-300 font-sans border-t-4 border-brand-primary pt-16 pb-8">
+    <footer className="relative w-full bg-brand-light text-slate-600 font-sans border-t-4 border-brand-primary pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 pb-14 border-b border-brand-dark-soft/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 pb-14 border-b border-slate-200">
           
           {/* Column 1: Brand Info & Bio */}
           <div className="space-y-4">
@@ -95,7 +92,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
                 </Link>
               ) : (
                 <Link href="/" className="inline-block focus:outline-none">
-                  <h3 className="text-xl font-serif font-bold text-white tracking-wider uppercase">
+                  <h3 className="text-xl font-serif font-bold text-brand-dark tracking-wider uppercase">
                     {companyName}
                   </h3>
                 </Link>
@@ -108,7 +105,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
               )}
             </div>
 
-            <p className="text-sm text-slate-300 leading-relaxed pt-1">
+            <p className="text-sm text-slate-600 leading-relaxed pt-1">
               {description}
             </p>
 
@@ -120,7 +117,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
                     key={idx}
                     href={social.href}
                     aria-label={social.platform}
-                    className="w-9 h-9 rounded-full bg-brand-dark-soft text-slate-200 hover:bg-brand-primary hover:text-brand-dark flex items-center justify-center transition-all duration-300 border border-slate-700/50"
+                    className="w-9 h-9 rounded-full bg-slate-100 text-brand-dark hover:bg-brand-primary hover:text-white flex items-center justify-center transition-all duration-300 border border-slate-200"
                   >
                     {renderSocialIcon(social.iconName)}
                   </a>
@@ -131,7 +128,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
 
           {/* Column 2: Quick Navigation */}
           <div>
-            <h4 className="text-base font-serif font-bold text-white tracking-wide uppercase mb-4 border-b border-brand-primary/40 pb-2 inline-block">
+            <h4 className="text-base font-serif font-bold text-brand-dark tracking-wide uppercase mb-4 border-b border-brand-primary/40 pb-2 inline-block">
               Company Links
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -151,14 +148,14 @@ export default function FooterSection({ data }: FooterSectionProps) {
 
           {/* Column 3: Contact & Office Info */}
           <div>
-            <h4 className="text-base font-serif font-bold text-white tracking-wide uppercase mb-4 border-b border-brand-primary/40 pb-2 inline-block">
+            <h4 className="text-base font-serif font-bold text-brand-dark tracking-wide uppercase mb-4 border-b border-brand-primary/40 pb-2 inline-block">
               Head Office
             </h4>
             <ul className="space-y-3.5 text-sm">
               {officeAddress && (
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
-                  <span className="text-slate-300 leading-snug">{officeAddress}</span>
+                  <span className="text-slate-600 leading-snug">{officeAddress}</span>
                 </li>
               )}
 
@@ -174,7 +171,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
               {workingHours && (
                 <li className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
-                  <span className="text-slate-300 leading-snug">{workingHours}</span>
+                  <span className="text-slate-600 leading-snug">{workingHours}</span>
                 </li>
               )}
             </ul>
@@ -183,7 +180,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
         </div>
 
         {/* Bottom Legal & Copyright Strip */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>{copyrightText}</p>
 
           <div className="flex items-center gap-6">
@@ -200,7 +197,7 @@ export default function FooterSection({ data }: FooterSectionProps) {
         type="button"
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`fixed bottom-6 right-6 z-40 p-3 rounded-sm bg-brand-primary text-brand-dark hover:bg-brand-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none cursor-pointer ${
+        className={`fixed bottom-6 right-6 z-40 p-3 rounded-sm bg-brand-primary text-white hover:bg-brand-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none cursor-pointer ${
           showScrollTop
             ? 'opacity-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 translate-y-4 pointer-events-none'

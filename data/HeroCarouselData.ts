@@ -4,11 +4,12 @@ export const defaultHeroData: HeroCarouselData = {
   slides: [
     {
       id: "slide-1",
-      badge: "ENGINEERING EXCELLENCE",
-      title: "Your most reliable construction partner",
+      badge: "CONSTRUCTION EXCELLENCE",
+      title: "Building lasting structural excellence across Uganda",
       subtitle:
-        "We collaborate with visionaries and organizations to deliver world-class infrastructure, commercial builds, and sustainable civil engineering solutions.",
-      bgImageUrl: "/images/project1.webp",
+        "From foundation to final build, T-Slab Construction delivers premier residential and commercial structural solutions built with precision and integrity.",
+      bgImageUrl:
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920&auto=format&fit=crop",
       primaryCta: {
         label: "OUR SERVICES",
         href: "/services",
@@ -20,15 +21,15 @@ export const defaultHeroData: HeroCarouselData = {
     },
     {
       id: "slide-2",
-      badge: "PRIME REAL ESTATE",
-      title: "Building luxury estates & smart property sales",
+      badge: "PROPERTY REFURBISHMENT",
+      title: "Transforming existing spaces into modern masterpieces",
       subtitle:
-        "From premium residential developments to commercial hubs in prime locations across Abuja, we turn structural vision into high-yield real estate investments.",
-      bgImageUrl: "/images/project63.webp",
-
+        "Revitalize old structures with complete architectural refurbishment, structural enhancements, and modern facade upgrades in Namugongo and beyond.",
+      bgImageUrl:
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop",
       primaryCta: {
-        label: "VIEW PROPERTIES",
-        href: "/services/realtors",
+        label: "VIEW REFURBISHMENTS",
+        href: "/services/refurbishment",
       },
       secondaryCta: {
         label: "REQUEST QUOTE",
@@ -37,12 +38,12 @@ export const defaultHeroData: HeroCarouselData = {
     },
     {
       id: "slide-3",
-      badge: "PROJECT MANAGEMENT",
-      title: "Precision execution from blueprint to key handover",
+      badge: "INTERIOR DESIGN & FIT-OUT",
+      title: "Bespoke interior design and functional spatial finishing",
       subtitle:
-        "End-to-end management guaranteeing structural integrity, strict budget compliance, and timely project delivery across all site operations in Abuja and beyond.",
-      bgImageUrl: "/images/project39.webp",
-
+        "Crafting beautiful, modern commercial and residential interiors with high-grade finishes, custom joinery, and functional layout optimization.",
+      bgImageUrl:
+        "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920&auto=format&fit=crop",
       primaryCta: {
         label: "CONSULT WITH US",
         href: "#contact",

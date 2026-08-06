@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import ContactInfoSidebar from "@/components/contact/ContactInfoSidebar";
 import ContactForm from "@/components/contact/ContactForm";
 import { ContactSectionData } from "@/types/contact";

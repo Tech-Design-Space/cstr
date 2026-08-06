@@ -2,30 +2,30 @@ import { CompanyOverviewData } from "@/types/overview";
 
 export const defaultOverviewData: CompanyOverviewData = {
   badge: "WHO WE ARE",
-  heading: "Focused and Future Ready",
+  heading: "Crafting Excellence, Building Trust",
   paragraphs: [
-    "The engineering agility to deploy expert site teams, an unwavering commitment to structural integrity, and the technical capacity to execute complex developments on schedule. This is Jiba Construction Limited.",
-    "As a premier civil engineering and real estate development enterprise headquartered in Abuja, we collaborate with public and private stakeholders to transform ambitious blueprints into enduring physical assets.",
-    "Whether executing major civil works, constructing luxury residential estates, or facilitating strategic land acquisitions, partnering with Jiba means securing a dependable, end-to-end development partner.",
-    "From sustainable structural practices to modern project management frameworks, we lead with precision. We leverage our operational expertise across Nigeria to build lasting legacies for our clients."
+    "The operational agility to deploy skilled site teams, an unwavering commitment to structural durability, and the creative precision to deliver modern spaces on schedule. This is T-Slab Construction Company Ltd.",
+    "Headquartered at Namugongo Nalule Complex in Namugongo, Uganda, we collaborate with homeowners, commercial clients, and property developers to transform architectural ideas into high-value functional environments.",
+    "Whether constructing new buildings from the ground up, executing total property refurbishments, or fitting out sophisticated interior spaces, partnering with T-Slab means securing a reliable, detail-oriented construction partner.",
+    "From sustainable building techniques to contemporary interior finishings, we lead with craftsmanship. We leverage our technical expertise across Uganda to create lasting value for every project we touch."
   ],
   ctaText: "ABOUT US",
   ctaHref: "/about",
   highlights: [
     {
       id: "hl-1",
-      value: "10+",
-      label: "Years of Engineering Leadership",
+      value: "100%",
+      label: "Client Satisfaction Track Record",
     },
     {
       id: "hl-2",
-      value: "₦15B+",
-      label: "Executed Project Valuation",
+      value: "3-in-1",
+      label: "Build, Refurbish & Design Solutions",
     },
     {
       id: "hl-3",
-      value: "100%",
-      label: "Regulatory & COREN Compliance",
+      value: "On-Time",
+      label: "Project Completion & Handover",
     },
   ],
 };

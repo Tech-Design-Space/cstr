@@ -4,22 +4,22 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Jiba Construction Brand Tokens (Derived from Logo) */
-  --brand-primary: #d5a330;        /* Metallic Gold/Amber */
-  --brand-primary-dark: #b8861e;   /* Deep Gold */
-  --brand-dark: #0a2f1d;           /* Deep Emerald Green / Dark Steel */
-  --brand-dark-soft: #14422b;      /* Soft Emerald Accent */
-  --brand-light: #f8fafc;          /* Concrete Light / Off-White */
-  --brand-accent: #ea580c;         /* Safety Accent */
+  /* T-Slab Construction Brand Tokens (Derived from Logo) */
+  --brand-primary: #f08e2c;        /* Vibrant Construction Orange ('S' & Window) */
+  --brand-primary-dark: #D8550C;   /* Deep Orange for hover states */
+  --brand-dark: #403b4f;           /* Deep Charcoal / Slate ('T' & Roof) */
+  --brand-dark-soft: #2d2938;      /* Darker Charcoal Accent */
+  --brand-light: #F8FAF8;          /* Soft Off-White Surface */
+  --brand-accent: #E85A0C;         /* High-Vis Safety Orange Accent */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), Arial, sans-serif;
-  --font-serif: var(--font-cinzel), Georgia, serif;
+  --font-sans: var(--font-sans-app), system-ui, sans-serif;
+  --font-heading: var(--font-heading-app), sans-serif;
 
-  /* Brand Colors registered for Tailwind classes */
+  /* Brand Colors registered for Tailwind v4 utility classes */
   --color-brand-primary: var(--brand-primary);
   --color-brand-primary-dark: var(--brand-primary-dark);
   --color-brand-dark: var(--brand-dark);
@@ -31,10 +31,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans-app), system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cinzel), Georgia, serif;
-  letter-spacing: 0.025em;
+  font-family: var(--font-heading-app), sans-serif;
+  letter-spacing: -0.01em;
 }

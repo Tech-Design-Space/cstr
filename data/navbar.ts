@@ -2,12 +2,12 @@ import { NavbarData } from "@/types/navbar";
 
 export const defaultNavbarData: NavbarData = {
   logoImage: {
-    src: "/jiba-logo-2.png",
-    alt: "JIBA CONSTRUCTION LIMITED Logo",
+    src: "/tslab-logo.png",
+    alt: "T-SLAB CONSTRUCTION LIMITED Logo",
     width: 180,
     height: 50,
   },
-  logoText: "JIBA CONSTRUCTION",
+  logoText: "T-SLAB CONSTRUCTION",
   rcNumber: "RC: 1805786",
   navLinks: [
     {
@@ -18,22 +18,19 @@ export const defaultNavbarData: NavbarData = {
     },
     {
       id: "nav-2",
-      _key: "nav-1",
+      _key: "nav-2",
       title: "Services",
       href: "/services",
     },
     {
       id: "nav-3",
-      _key: "nav-1",
-
+      _key: "nav-3",
       title: "Projects",
-
       href: "/projects",
     },
     {
       id: "nav-4",
-      _key: "nav-1",
-
+      _key: "nav-4",
       title: "About Us",
       href: "/about",
     },

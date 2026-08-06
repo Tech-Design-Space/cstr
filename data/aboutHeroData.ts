@@ -8,6 +8,5 @@ export const defaultAboutHeroData: PageHeroSectionData = {
     { label: "About Us" },
   ],
   showScrollIndicator: true,
-  bgImageUrl: "/images/project34.webp", // Path to your hero background image
-  overlayOpacity: "bg-brand-dark/50", // Light overlay ensuring dark text legibility
+  bgImageUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200&auto=format&fit=crop"
 };

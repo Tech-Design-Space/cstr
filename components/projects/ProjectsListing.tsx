@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Loader2, AlertCircle, MapPin, Expand } from "lucide-react";
+import { Loader2, AlertCircle, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Project, CategoryFilter } from "@/types/project";
 import { initialProjectsData } from "@/data/projects";
@@ -10,9 +10,8 @@ import { initialProjectsData } from "@/data/projects";
 const CATEGORIES: CategoryFilter[] = [
   "ALL",
   "BUILDING CONSTRUCTION",
-  "CIVIL ENGINEERING",
-  "DESIGN & BUILD",
-  "RESIDENTIAL DEVELOPMENT",
+  "PROPERTY REFURBISHMENT",
+  "INTERIOR DESIGN & FIT-OUT",
 ];
 
 interface ProjectsListingProps {
@@ -83,7 +82,7 @@ export default function ProjectsListing({
     } catch (err) {
       console.error("Failed to load more projects:", err);
       setFetchError("Unable to load additional projects. Please try again.");
-    } finally {
+    }  finally {
       setIsLoadingMore(false);
     }
   };
@@ -159,13 +158,6 @@ export default function ProjectsListing({
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/45 to-transparent transition-opacity duration-300" />
-
-                 
-
-                    {/* Completion Year Tag */}
-                    {/* <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-bold text-brand-dark font-sans shadow-md z-10 tracking-wider">
-                      {project.completionYear}
-                    </div> */}
 
                     {/* Bottom Details Content */}
                     <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end z-10">

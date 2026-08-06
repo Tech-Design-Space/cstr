@@ -2,11 +2,11 @@ import { ContactSectionData } from "@/types/contact";
 
 export const defaultContactSectionData: ContactSectionData = {
   officeInfo: {
-    officeTitle: "Nigeria Office",
-    address: "Sabon Lugbe / Pyakasa District, Abuja, FCT, Nigeria",
-    phone: "+234 703 726 0013",
-    email: "jibaconstructionltd@gmail.com",
-    website: "www.jibaconstruction.com",
+    officeTitle: "Head Office - Uganda",
+    address: "Namugongo Nalule Complex Second floor room N203 , Namugongo, Uganda, 207141",
+    phone: "+256 787 768137",
+    email: "info@tslabconstruction.com",
+    website: "www.tslabconstruction.com",
   },
   businessHours: {
     weekdays: "Monday – Friday: 8:00 AM – 6:00 PM",
@@ -22,9 +22,9 @@ export const defaultContactSectionData: ContactSectionData = {
   subjectOptions: [
     "General Inquiry",
     "Building Construction Project",
-    "Civil Engineering & Infrastructure",
+    "Property Refurbishment & Renovation",
+    "Interior Design & Fit-Out",
     "Design & Build Turnkey Proposal",
-    "Facility Management & Renovation",
     "Partnership / Subcontracting",
   ],
 };

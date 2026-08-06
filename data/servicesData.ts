@@ -1,52 +1,52 @@
-import { ServicesSectionData } from "@/types/services";
+import { ServicesSectionData, ServicesOverviewData } from "@/types/services";
 
 export const defaultServicesData: ServicesSectionData = {
   badge: "OUR CORE CAPABILITIES",
-  heading: "Full project management & construction services",
+  heading: "End-to-End Construction, Refurbishment & Interior Solutions",
   services: [
     {
       id: "service-1",
-      categoryTag: "CIVIL ENGINEERING",
-      title: "General Contracting",
+      categoryTag: "BUILDING CONSTRUCTION",
+      title: "General Construction & Build",
       description:
-        "Comprehensive structural engineering, site management, and heavy infrastructure developments delivered to regulatory standards.",
-      href: "/services/civil-engineering",
+        "Complete residential and commercial building solutions from ground site preparation and foundation laying to final structural execution.",
+      href: "/services",
       iconName: "HardHat",
     },
     {
       id: "service-2",
-      categoryTag: "PROPERTY DEVELOPMENT",
-      title: "Real Estate Development",
+      categoryTag: "PROPERTY REFURBISHMENT",
+      title: "Structural Refurbishment & Renovation",
       description:
-        "Turnkey residential estates, commercial hubs, and luxury multi-unit developments built for longevity and high ROI.",
-      href: "/services/real-estate",
+        "Comprehensive structural modernizations, building repairs, layout reconfigurations, and exterior facade upgrades for aging properties.",
+      href: "/services",
       iconName: "Building2",
     },
     {
       id: "service-3",
-      categoryTag: "PROPERTY SALES",
-      title: "Realtors & Land Sales",
+      categoryTag: "INTERIOR DESIGN",
+      title: "Bespoke Interior Design & Fit-Out",
       description:
-        "Verified land acquisition, luxury property marketing, and seamless title transfer documentation across prime locations.",
-      href: "/services/realtors",
-      iconName: "Home",
+        "Tailored interior planning, spatial optimization, high-grade material finishes, custom cabinetry, and modern lighting installation.",
+      href: "/services",
+      iconName: "Palette",
     },
     {
       id: "service-4",
       categoryTag: "PROJECT MANAGEMENT",
-      title: "End-to-End Supervision",
+      title: "Site Supervision & Cost Management",
       description:
-        "Rigorous quality assurance, material procurement, budgeting, and timeline enforcement from foundation to key handover.",
-      href: "/services/project-management",
+        "Rigorous project oversight, material sourcing, budget tracking, and timeline enforcement from initial concept to key handover.",
+      href: "/services",
       iconName: "Compass",
     },
     {
       id: "service-5",
-      categoryTag: "ARCHITECTURAL PLANNING",
-      title: "Structural Design & Planning",
+      categoryTag: "ARCHITECTURAL FIT-OUT",
+      title: "Commercial & Office Space Planning",
       description:
-        "Precision structural modeling, BIM integration, and architectural blueprints tailored for durability and urban compliance.",
-      href: "/services/structural-design",
+        "Turnkey office re-designs and retail interior solutions engineered to boost functionality, corporate branding, and spatial flow.",
+      href: "/services",
       iconName: "Layers",
     },
   ],
@@ -55,39 +55,36 @@ export const defaultServicesData: ServicesSectionData = {
 
 
 
-
-
-import { ServicesOverviewData } from "@/types/services";
-
 export const defaultServicesMainData: ServicesOverviewData = {
-  subheading: "WE'RE HERE TO HELP YOU",
-  heading: "WHAT ARE YOU LOOKING FOR?",
-  bgImageUrl: "/images/project63.webp",
+  subheading: "WE'RE HERE TO TRANSFORM YOUR SPACE",
+  heading: "WHAT SERVICE DO YOU NEED TODAY?",
+  bgImageUrl:
+    "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRGnBHfsTH_k5SYLdtqfY9BP9frZsaFlMTBUH_vCdYHRtA9Bv58_dY23WDUL2ZZz8gwK9OzmBN7s8gauPg",
   services: [
     {
       id: "srv-1",
       title: "BUILDING CONSTRUCTION",
       description:
-        "We continuously train and retrain our team members—that’s why we never fail to deliver top-tier commercial and residential construction.",
+        "We combine expert engineering and skilled craftsmanship to deliver durable, high-quality residential and commercial structures.",
       iconName: "Building2",
       ctaText: "Get Quotation",
       ctaHref: "/contact",
     },
     {
       id: "srv-2",
-      title: "ROAD CONSTRUCTION",
+      title: "PROPERTY REFURBISHMENT",
       description:
-        "We strive to maintain the highest standard of quality and structural longevity while staying strictly on time and within budget.",
-      iconName: "Road",
+        "We revitalize outdated and damaged properties with total structural remodeling, contemporary finishes, and reinforced stability.",
+      iconName: "Hammer",
       ctaText: "Get Quotation",
       ctaHref: "/contact",
     },
     {
       id: "srv-3",
-      title: "BRIDGE & CIVIL WORKS",
+      title: "INTERIOR DESIGN & FIT-OUT",
       description:
-        "We have the technical resources and strategies in place to build modern bridges and complex civil infrastructure at tight deadlines.",
-      iconName: "Bridge",
+        "We design and execute luxury, functional interior spaces tailored to your personal style or corporate identity.",
+      iconName: "Sparkles",
       ctaText: "Get Quotation",
       ctaHref: "/contact",
     },

@@ -123,7 +123,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Last Revision Footer Tag */}
           <div className="pt-8 border-t border-slate-200 text-xs text-slate-400 font-medium">
-            Last Updated: {data.lastUpdated} — Jiba Construction Company Limited.
+            Last Updated: {data.lastUpdated} —  T-Slab Construction Company Limited.
           </div>
 
         </div>

@@ -41,10 +41,12 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
     return false;
   };
 
+  const isCtaActive = pathname === data.ctaButton.href;
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-brand-dark text-white border-b border-white/10 shadow-md">
+    <header className="sticky top-0 z-50 w-full bg-white text-brand-dark border-b border-slate-200/80 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-28">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           
           {/* Logo Brand Section */}
           <div className="flex-shrink-0 flex items-center gap-2">
@@ -57,12 +59,12 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                     width={data.logoImage.width}
                     height={data.logoImage.height}
                     priority
-                    className="h-17 sm:h-12 lg:h-24 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                    className="h-14 sm:h-16 lg:h-20 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
               ) : (
                 <div className="flex flex-col">
-                  <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-brand-primary transition-colors">
+                  <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-primary transition-colors">
                     {data.logoText}
                   </span>
                   {data.rcNumber && (
@@ -101,7 +103,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                       className={`inline-flex items-center gap-1.5 text-sm font-semibold tracking-wide transition-colors py-2 cursor-pointer ${
                         active
                           ? "text-brand-primary font-bold"
-                          : "text-slate-100 hover:text-brand-primary"
+                          : "text-brand-dark hover:text-brand-primary"
                       }`}
                       onClick={() => toggleDropdown(link.title)}
                       aria-expanded={activeDropdown === link.title}
@@ -117,7 +119,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                           className={`w-4 h-4 ${
                             active
                               ? "text-brand-primary"
-                              : "text-slate-400 group-hover:text-brand-primary"
+                              : "text-slate-500 group-hover:text-brand-primary"
                           }`}
                         />
                       </motion.div>
@@ -128,14 +130,14 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                       className={`text-sm font-semibold tracking-wide transition-colors py-2 block ${
                         active
                           ? "text-brand-primary font-bold"
-                          : "text-slate-100 hover:text-brand-primary"
+                          : "text-brand-dark hover:text-brand-primary"
                       }`}
                     >
                       {link.title}
                     </Link>
                   )}
 
-                  {/* Desktop Dropdown Menu Animation */}
+                  {/* Desktop Dropdown Menu */}
                   <AnimatePresence>
                     {hasDropdown && activeDropdown === link.title && (
                       <motion.div
@@ -143,7 +145,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.98 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute left-0 mt-1 w-56 rounded-md shadow-xl bg-brand-dark border border-white/10 z-50 overflow-hidden"
+                        className="absolute left-0 mt-1 w-56 rounded-lg shadow-lg bg-white border border-slate-100 z-50 overflow-hidden ring-1 ring-black/5"
                       >
                         <div className="py-2">
                           {link.dropdownItems?.map((subItem, idx) => {
@@ -154,8 +156,8 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                                 href={subItem.href}
                                 className={`block px-4 py-2.5 text-sm transition-colors ${
                                   isSubActive
-                                    ? "bg-brand-dark-soft text-brand-primary font-bold"
-                                    : "text-slate-200 hover:bg-brand-dark-soft hover:text-brand-primary"
+                                    ? "bg-slate-50 text-brand-primary font-bold"
+                                    : "text-slate-700 hover:bg-slate-50 hover:text-brand-primary"
                                 }`}
                               >
                                 {subItem.title}
@@ -171,12 +173,12 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
             })}
           </nav>
 
-          {/* Call to Action Button */}
+          {/* Desktop Call to Action Button */}
           <div className="hidden lg:flex items-center">
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href={data.ctaButton.href}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-brand-primary hover:bg-brand-primary-dark text-brand-dark font-bold text-xs uppercase tracking-widest transition-colors shadow-md hover:shadow-brand-primary/20"
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-brand-primary hover:bg-brand-primary-dark text-white font-bold text-xs uppercase tracking-widest transition-colors shadow-sm hover:shadow-md"
               >
                 {data.ctaButton.label}
               </Link>
@@ -189,7 +191,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
               type="button"
               whileTap={{ scale: 0.9 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-slate-200 hover:text-white hover:bg-brand-dark-soft focus:outline-none z-50"
+              className="p-2 rounded-lg text-brand-dark hover:text-brand-primary hover:bg-slate-100 focus:outline-none z-50 transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
@@ -202,29 +204,27 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
         </div>
       </div>
 
-      {/* Mobile Right Slide-in Panel with Overlay */}
+      {/* Mobile Drawer & Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
-            {/* Dark Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 lg:hidden"
+              className="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 lg:hidden"
             />
 
-            {/* Slide-in Drawer from Right */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-brand-dark border-l border-white/10 z-50 lg:hidden flex flex-col justify-between shadow-2xl overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white border-l border-slate-200 z-50 lg:hidden shadow-2xl overflow-y-auto"
             >
-              <div className="p-6 pt-20 space-y-4">
+              <div className="p-6 pt-24 space-y-4">
                 {data.navLinks.map((link) => {
                   const hasDropdown = Boolean(
                     link.dropdownItems && link.dropdownItems.length > 0
@@ -235,15 +235,17 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                   return (
                     <div
                       key={`mobile-${link.id}`}
-                      className="border-b border-white/5 pb-3"
+                      className="border-b border-slate-100 pb-3"
                     >
                       {hasDropdown ? (
                         <div>
                           <button
                             type="button"
                             onClick={() => toggleDropdown(link.title)}
-                            className={`w-full flex justify-between items-center py-2 text-base font-medium cursor-pointer transition-colors ${
-                              active ? "text-brand-primary font-bold" : "text-slate-200 hover:text-brand-primary"
+                            className={`w-full flex justify-between items-center py-2 text-base font-semibold cursor-pointer transition-colors ${
+                              active
+                                ? "text-brand-primary font-bold"
+                                : "text-brand-dark hover:text-brand-primary"
                             }`}
                           >
                             {link.title}
@@ -274,7 +276,7 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                                       className={`block py-1.5 text-sm transition-colors ${
                                         isSubActive
                                           ? "text-brand-primary font-bold"
-                                          : "text-slate-300 hover:text-brand-primary"
+                                          : "text-slate-600 hover:text-brand-primary"
                                       }`}
                                     >
                                       {subItem.title}
@@ -289,8 +291,10 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                         <Link
                           href={link.href || "#"}
                           onClick={() => setMobileMenuOpen(false)}
-                          className={`block py-2 text-base font-medium transition-colors ${
-                            active ? "text-brand-primary font-bold" : "text-slate-200 hover:text-brand-primary"
+                          className={`block py-2 text-base font-semibold transition-colors ${
+                            active
+                              ? "text-brand-primary font-bold"
+                              : "text-brand-dark hover:text-brand-primary"
                           }`}
                         >
                           {link.title}
@@ -299,17 +303,19 @@ export default function Navbar({ data = defaultNavbarData }: NavbarProps) {
                     </div>
                   );
                 })}
-              </div>
 
-              {/* Mobile CTA Drawer Footer */}
-              <div className="p-6 border-t border-white/10 bg-brand-dark-soft">
-                <Link
-                  href={data.ctaButton.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center py-3 rounded-full bg-brand-primary text-brand-dark font-bold text-xs uppercase tracking-widest active:scale-95 transition-transform shadow-md"
-                >
-                  {data.ctaButton.label}
-                </Link>
+                {/* Integrated Contact Us Menu Item */}
+                <div className="pt-2">
+                  <Link
+                    href={data.ctaButton.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block w-full text-center py-3 rounded-full bg-brand-primary text-white font-bold text-xs uppercase tracking-widest active:scale-95 transition-all shadow-sm hover:bg-brand-primary-dark ${
+                      isCtaActive ? "ring-2 ring-brand-primary-dark" : ""
+                    }`}
+                  >
+                    {data.ctaButton.label}
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </>

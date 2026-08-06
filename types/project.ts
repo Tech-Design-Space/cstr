@@ -18,6 +18,5 @@ export interface Project {
 export type CategoryFilter =
   | "ALL"
   | "BUILDING CONSTRUCTION"
-  | "CIVIL ENGINEERING"
-  | "DESIGN & BUILD"
-  | "RESIDENTIAL DEVELOPMENT"; // Added to match new data
+  | "PROPERTY REFURBISHMENT"
+  | "INTERIOR DESIGN & FIT-OUT";

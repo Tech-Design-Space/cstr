@@ -3,76 +3,75 @@ import { ServicesHighlightData } from "@/types/servicesHighlight";
 export const defaultServicesHighlightData: ServicesHighlightData = {
   badgeText: "WORLD CLASS EXPERTISE",
   mainHeading:
-    "Leading Indigenous Provider of Engineering, Procurement, Construction & Facility Management Services",
+    "Leading Indigenous Provider of Building Construction, Property Refurbishment & Interior Design Services",
   subHeading:
-    "Jiba Construction's utmost priority is to flawlessly execute projects within defined timelines, budgets, and quality benchmarks, overseeing every facet from structural design to construction and long-term asset maintenance.",
+    "T-Slab Construction Company Ltd is committed to executing every project with precision—delivering structural durability, high-end refurbishment, and luxury interior fit-outs within agreed timelines and budgets.",
   services: [
     {
       id: "1",
       title: "Building Construction",
       description:
-        "Our team of experienced structural engineers and site experts collaborates closely with clients to construct commercial, residential, and industrial complexes. We prioritize safety, structural integrity, and architectural perfection from foundation to completion.",
+        "Our team of experienced structural engineers and site experts collaborates closely with clients to build modern residential homes and commercial developments. We prioritize structural safety, quality materials, and architectural perfection from foundation to handover.",
       image: {
-  src: "/images/project27.webp",
-        alt: "Building Construction Site Operations",
+        src: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTQwl1-wi4LIDzhT9LiuQX0rmZx8mb48OCVd_Q9mzGjZz-24tS-N97dmrM5cQDa3C8-LHynCLpJpRRDokc",
+        alt: "Modern Building Construction Site Operations",
       },
       slug: "building-construction",
     },
     {
       id: "2",
-      title: "Civil Engineering",
+      title: "Property Refurbishment",
       description:
-        "Delivering heavy civil works, road network developments, drainage channels, and bridge structures. We utilize modern soil testing and reinforced concrete designs to build durable infrastructure that stands the test of time.",
+        "Transforming existing structures through comprehensive renovations, exterior facade modernizations, structural repairs, and layout upgrades. We breathe new life into older properties while ensuring full safety compliance and extended lifespan.",
       image: {
         src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop",
-        alt: "Civil Engineering and Infrastructure Construction",
+        alt: "Structural Property Refurbishment and Renovation",
       },
-      slug: "civil-engineering",
+      slug: "property-refurbishment",
     },
     {
       id: "3",
-      title: "Real Estate",
+      title: "Interior Design & Fit-Outs",
       description:
-        "Strategic acquisition, valuation, and advisory services across prime commercial and residential properties. We assist investors and stakeholders in navigating land title perfection, portfolio growth, and high-yield real estate investments.",
+        "Delivering bespoke interior architecture, spatial planning, custom joinery, lighting concepts, and premium surface finishes for luxury homes and office spaces across Kampala and Namugongo.",
       image: {
-  src: "/images/project26.webp",
-        alt: "Modern Luxury Real Estate Property",
+        src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop",
+        alt: "Luxury Interior Design and Commercial Fit-Out",
       },
-      slug: "real-estate",
+      slug: "interior-design",
     },
     {
       id: "4",
-      title: "Developers",
-      description:
-        "End-to-end property development solutions from site selection and master planning to construction management and handover. We build sustainable, high-value developments tailored to market demand.",
-      image: {
-   src: "/images/project54.webp",
-        alt: "Commercial Property Development Building",
-      },
-      slug: "developers",
-    },
-
-    {
-      id: "6",
       title: "Design & Build (Turnkey Solutions)",
       description:
-        "Integrating architectural design, procurement, and construction under a single point of responsibility. Our turnkey approach reduces project timelines, eliminates cost inflation, and guarantees seamless execution.",
+        "Integrating architectural planning, material procurement, and construction under a single point of responsibility. Our turnkey approach reduces timelines, manages budgets efficiently, and guarantees seamless execution.",
       image: {
         src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop",
-        alt: "Architectural Blueprint and Design Planning",
+        alt: "Architectural Design and Turnkey Project Planning",
       },
       slug: "design-and-build",
     },
     {
-      id: "7",
-      title: "Facility Management & Rehabilitation",
+      id: "5",
+      title: "Property Development & Advisory",
       description:
-        "Providing proactive maintenance, structural renovations, and long-term asset management. We ensure your facilities remain compliant, energy-efficient, and operationally optimal throughout their lifecycle.",
+        "End-to-end site selection, master planning, and residential development coordination. We build high-value, sustainable property projects tailored to client requirements and local market trends.",
       image: {
-        src: "/images/services1.jpg",
-        alt: "Facility Maintenance Engineering Inspection",
+        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+        alt: "Residential Property Development",
       },
-      slug: "facility-management",
+      slug: "property-development",
+    },
+    {
+      id: "6",
+      title: "Facility Maintenance & Restoration",
+      description:
+        "Proactive maintenance services, structural restoration, and ongoing asset management to keep residential estates and commercial buildings operationally sound and visually pristine.",
+      image: {
+        src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop",
+        alt: "Building Maintenance and Structural Restoration",
+      },
+      slug: "facility-maintenance",
     },
   ],
 };

@@ -1,17 +1,17 @@
 import { PrivacyPolicyData } from "@/types/privacyPolicy";
 
 export const defaultPrivacyPolicyData: PrivacyPolicyData = {
-  categoryTag: "In Policies, Other Policies",
+  categoryTag: "In Policies, Legal Policies",
   title: "Privacy Policy",
   lastUpdated: "August 2026",
   bgImageUrl:
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop",
   sections: [
     {
       id: "intro",
       title: "OVERVIEW & INTRODUCTION",
       content: [
-        "This Privacy Policy describes Jiba Construction Company Limited's policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.",
+        "This Privacy Policy describes T-Slab Construction Company Ltd's policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.",
         "We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.",
       ],
     },
@@ -31,7 +31,7 @@ export const defaultPrivacyPolicyData: PrivacyPolicyData = {
         {
           term: "Company",
           definition:
-            "(referred to as either 'the Company', 'We', 'Us' or 'Our' in this Agreement) refers to Jiba Construction Company Limited, Lagos, Nigeria.",
+            "(referred to as either 'the Company', 'We', 'Us' or 'Our' in this Agreement) refers to T-Slab Construction Company Ltd, Kampala, Uganda.",
         },
         {
           term: "Cookies",
@@ -40,7 +40,7 @@ export const defaultPrivacyPolicyData: PrivacyPolicyData = {
         },
         {
           term: "Country",
-          definition: "refers to: Nigeria.",
+          definition: "refers to: Uganda.",
         },
         {
           term: "Device",
@@ -74,8 +74,7 @@ export const defaultPrivacyPolicyData: PrivacyPolicyData = {
         "Email address",
         "First name and last name",
         "Phone number",
-        "Address, State, Province, ZIP/Postal code, City",
-        "Usage Data and browsing telemetry",
+        "Address, City, Region, Country",
       ],
     },
   ],

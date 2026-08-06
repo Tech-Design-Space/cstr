@@ -1,22 +1,22 @@
 import { FooterSectionData } from "@/types/footer";
 
 export const defaultFooterData: FooterSectionData = {
-  logoType: "image", 
-  logoImageUrl: "/jiba-logo-2.png", 
+  logoType: "image",
+  logoImageUrl: "/tslab-logo.png",
 
-  companyName: "JIBA CONSTRUCTION",
-  tagline: "Engineering Excellence & Structural Integrity",
+  companyName: "T-SLAB CONSTRUCTION COMPANY LTD",
+  tagline: "Construction, Property Refurbishment & Interior Design",
   description:
-    "Delivering premier commercial, civil infrastructure, and luxury residential projects with uncompromising safety and craftsmanship.",
-  officeAddress: "Sabon Lugbe / Pyakasa District, Abuja, FCT, Nigeria",
-  email: " jibaconstructionltd@gmail.com",
+    "Delivering premier residential builds, high-end property refurbishments, and bespoke interior fit-outs with uncompromising craftsmanship and structural integrity.",
+  officeAddress: "Namugongo, Kampala, Uganda",
+  email: "info@tslabconstruction.com",
   workingHours: "Mon - Sat: 8:00 AM - 6:00 PM",
   quickLinks: [
     { label: "About Our Firm", href: "/about" },
     { label: "Featured Projects", href: "/projects" },
-    { label: "Engineering Services", href: "/services" },
+    { label: "Our Services", href: "/services" },
     { label: "Request Quotation", href: "/contact" },
-    { label: "Privacy & Policy", href: "/privacy-policy" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
   ],
 
   socialLinks: [
@@ -25,5 +25,5 @@ export const defaultFooterData: FooterSectionData = {
     { platform: "Facebook", href: "#", iconName: "facebook" },
     { platform: "Instagram", href: "#", iconName: "instagram" },
   ],
-  copyrightText: "© 2026 Jiba Construction. All rights reserved.",
+  copyrightText: "© 2026 T-Slab Construction Company Ltd. All rights reserved.",
 };

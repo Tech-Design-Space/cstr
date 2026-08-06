@@ -4,7 +4,8 @@ export interface ServiceItem {
   title: string;
   description: string;
   href: string;
-  iconName: 'Building2' | 'Compass' | 'Home' | 'HardHat' | 'Layers';
+  // Expanded union type to accept 'Palette'
+  iconName: 'Building2' | 'Compass' | 'Home' | 'HardHat' | 'Layers' | 'Palette';
 }
 
 export interface ServicesSectionData {
@@ -13,16 +14,12 @@ export interface ServicesSectionData {
   services: ServiceItem[];
 }
 
-
-
-
-
-
 export interface ServiceCardItem {
   id: string;
   title: string;
   description: string;
-  iconName: 'Building2' | 'HardHat' | 'Bridge' | 'Road';
+  // Expanded union type to accept 'Hammer' and 'Sparkles'
+  iconName: 'Building2' | 'HardHat' | 'Bridge' | 'Road' | 'Hammer' | 'Sparkles';
   ctaText: string;
   ctaHref: string;
 }

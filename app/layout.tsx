@@ -1,33 +1,35 @@
 import type { Metadata } from "next";
-import { Inter, Cinzel } from "next/font/google";
+import { Plus_Jakarta_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/headerLayout";
 import Footer from "@/components/ui/footerLayout";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
-const inter = Inter({
-  variable: "--font-inter",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-sans-app",
   subsets: ["latin"],
   display: "swap",
 });
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
+const montserrat = Montserrat({
+  variable: "--font-heading-app",
   subsets: ["latin"],
   display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
   title:
-    "JIBA CONSTRUCTION LIMITED | Real Estate, Developers & Civil Engineering",
+    "T-SLAB CONSTRUCTION LIMITED | Structural Engineering, Real Estate & Development",
   description:
-    "Building today, securing tomorrow. Premium real estate development, realtor services, and civil engineering based in Abuja, Nigeria.",
+    "Innovative structural solutions and premium civil engineering services. Building durable structures and modern real estate solutions.",
   keywords: [
-    "Jiba Construction",
-    "Real Estate Abuja",
+    "T-Slab Construction",
+    "Structural Engineering",
+    "T-Slab Decking",
     "Civil Engineering Nigeria",
-    "Realtors Abuja",
-    "Property Developers",
+    "Real Estate Developers",
+    "Property Construction",
   ],
 };
 
@@ -39,16 +41,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${cinzel.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <Navbar />
 
         {children}
 
         <Footer />
 
-        <WhatsAppButton phoneNumber="2347037260013" />
+        <WhatsAppButton phoneNumber="+256787768137" />
       </body>
     </html>
   );

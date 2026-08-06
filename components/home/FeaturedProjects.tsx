@@ -18,7 +18,6 @@ interface FeaturedProjectsProps {
 export default function FeaturedProjects({
   data = defaultProjectsData,
 }: FeaturedProjectsProps) {
-  // Initialize AutoScroll Plugin with admin-configured default speed
   const [autoScrollPlugin] = useState(() =>
     AutoScroll({
       speed: data.defaultSpeed || 1.5,
